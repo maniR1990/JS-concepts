@@ -36,3 +36,19 @@ sceneTwofnOne()
 
   .then((val) => sceneTwofnTwo(val))
   .then((val) => console.log('scenario 2:', val));
+
+
+
+  // scenario3 : throwing an error outside the promise chain wont go to catchBlock.
+
+  function sceneThreefnOne() {
+    throw new Error("okay im an error")
+    return Promise.reject(1);
+  }
+  
+  sceneThreefnOne()
+  .then(value=>console.log(value))
+  .catch((err)=>{
+    console.log("inside catch Block");
+    console.log("error caught--", err.message)
+  })
