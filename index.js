@@ -15,4 +15,4 @@ function second(value) {
 
 first()
   .then((value) => second(value))
-  .then((valueTwo) => console.print(valueTwo));
+  .then((valueTwo) => console.log(valueTwo));
