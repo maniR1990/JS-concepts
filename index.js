@@ -5,14 +5,31 @@ import './style.css';
 const appDiv = document.getElementById('app');
 appDiv.innerHTML = `<h1>JS Starter</h1>`;
 
-function first() {
+// promise syntax:
+
+// scenario 1 : both function return promise
+function sceneOnefnOne() {
   return Promise.resolve(1);
 }
 
-function second(value) {
+function sceneOnefnTwo(value) {
   return Promise.resolve(value + 1);
 }
 
-first()
-  .then((value) => second(value))
-  .then((valueTwo) => console.log(valueTwo));
+sceneOnefnOne()
+  .then((value) => sceneOnefnTwo(value))
+  .then((valueTwo) => console.log('sceanrio 1: ', valueTwo));
+
+//scenario 2:  first fn return promise, second fn doesn't return promise.
+
+function sceneTwofnOne() {
+  return Promise.resolve(1);
+}
+
+function sceneTwofnTwo(value) {
+  return value + 1;
+}
+
+sceneTwofnOne()
+  .then((val) => sceneTwofnTwo(val))
+  .then((val) => console.log('scenario 2:', val));
