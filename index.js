@@ -31,5 +31,8 @@ function sceneTwofnTwo(value) {
 }
 
 sceneTwofnOne()
+  // then(cbfn)
+  // then(wrappedPromise(cbfn))
+
   .then((val) => sceneTwofnTwo(val))
   .then((val) => console.log('scenario 2:', val));
